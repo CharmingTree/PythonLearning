@@ -1,5 +1,3 @@
-from typing import NoReturn
-
 
 def maxHeapify(unsorted, root):
     length = len(unsorted)
