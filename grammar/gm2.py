@@ -44,7 +44,7 @@ class oddCounter:
         return self
     
     def __next__(self):
-        if self.n < 30:
+        if self.n < 30: 
             t = self.n
             self.n += 2
             return t
@@ -56,3 +56,21 @@ myCnt = oddCounter()
 for i in myCnt:
     print(i, end = ' ')
 
+
+try:
+    f = open('./asset/a.txt')
+except FileNotFoundError as e:
+    print(str(e))
+else:
+    data = f.read()
+    print(f)
+    f.close()
+
+
+a = [1,2,3,4]
+
+print(id(a))
+
+a = a + [5]
+
+print(id(a))
