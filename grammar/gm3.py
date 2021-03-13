@@ -95,3 +95,90 @@ print(mid_binding)
 
 ice_cream = {'merona': 1000, 'bbangbalea': 2000, 'summer_hunting' : 1999}
 print(ice_cream)
+
+ice_cream['죠스바'] = 3000
+
+print(ice_cream)
+
+print(ice_cream['merona'])
+
+ice_cream['merona'] = 2000
+
+print(ice_cream['merona'])
+
+print(ice_cream.pop('merona'))
+
+print(ice_cream)
+
+
+ice_cream = {'merona' : [300, 20], 'bbangppalea' : [200, 10]}
+
+print(ice_cream)
+
+print(ice_cream['merona'][0])
+
+ice_cream['worldcon'] = [140, 10]
+
+print(ice_cream)
+
+ice = list(ice_cream.keys())
+print(ice)
+
+ice_value = list(ice_cream.values())
+
+print(ice_value)
+
+sums = [j for i in list(ice_cream.values()) for j in i]
+
+print(sums)
+
+
+def solution(a, b):
+    if a > b:
+        a ,b = b, a
+    answer = 0
+    for i in range(a,b):
+        answer += i
+    return answer
+
+
+def solution(n, lost, reserve):
+    # n 전체학생
+    # lost 도난당한 학생 체육복 번호
+    # 여벌의 체육복을 가진 학생 번호
+    check = {}
+    for i in reserve:
+        check.setdefault(i,True)
+        print(check)
+    dc = len(lost)
+    for i in lost:
+        print("i >>>> ", i )
+        for j in range(i-1,i+2):
+            if check.get(j) is not None and check[j] == True:
+                print("00000000  ", j)
+                dc -= 1
+                check[j] = False
+                break
+    
+    return n-dc
+
+
+result = solution(3, [1,2], [1,3,5])
+print(result)
+
+
+def solution2(n):
+    
+    a = [False,False] + [True]*(n-1)
+    result = []
+
+    for i in range(2,n+1):
+        if a[i]:
+            result.append(i)
+            for j in range(2*i,n+1,i):
+                a[j] = False
+    print(result)
+    return len(result)
+
+print(solution2(100))
+
