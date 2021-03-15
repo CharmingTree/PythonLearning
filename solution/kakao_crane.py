@@ -3,14 +3,11 @@ def solution(board, moves):
     stack = []
     for m in moves:
         for b in board:
-            print(stack)
             if b[m-1] == 0:
                 continue
             else:
                 if len(stack) > 0:
-                    print('last ', stack[-1], 'b[m-1] ', b[m-1])
                     if stack[-1] == b[m-1]:
-                        print("pop ", stack[-1])
                         answer += 2
                         stack.pop()
                         b[m-1] = 0
