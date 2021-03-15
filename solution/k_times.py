@@ -9,8 +9,6 @@ def solution(array : list, commands : list):
         splits = array[i-1:j]
         splits = sorted(splits)
         answer.append(splits[k-1])
-
-    print(answer)
     return answer
 
 

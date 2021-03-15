@@ -20,8 +20,8 @@ def solution(n):
     nuberic = list(str(int(''.join(t))))
     nuberic.reverse()
     for i in range(len(nuberic)):
-        answer +=  math.pow(3,i) * int(nuberic[i])
-    return int(answer)
+        answer +=  int(math.pow(3,i)) * int(nuberic[i])
+    return answer
 
 
 solution(45)

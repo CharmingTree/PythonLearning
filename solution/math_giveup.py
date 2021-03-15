@@ -34,11 +34,7 @@ def solution(answers):
     dictList.append(b)
     dictList.append(c)
 
-    print(dictList, sep='\n')
-
     sortedList = sorted(dictList, key=(lambda x : x['score']), reverse=True)
-
-    print('sorted ', sortedList)
 
     answer.append(sortedList[0]['name'])
 
