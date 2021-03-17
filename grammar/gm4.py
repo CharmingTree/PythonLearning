@@ -7,3 +7,14 @@ rs = collections.Counter(lst)
 print(rs)
 
 print(type(rs))
+
+nums = [4,3,1,2]
+
+sorted(nums)
+
+
+nums.sort()
+
+print(nums)
+
+print(min(nums))

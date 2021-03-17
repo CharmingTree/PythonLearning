@@ -1,3 +1,5 @@
+import math
+
 def solution(a, b):
     answer = 0
     for i, j in zip(a,b):
@@ -18,4 +20,9 @@ def solution2(n):
         n //= a
     return answer
 
-print(solution2(123))
+# print(solution2(123))
+
+
+print(math.sqrt(121))
+
+print(1.7%1)
