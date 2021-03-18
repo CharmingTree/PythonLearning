@@ -3,13 +3,16 @@ import copy
 def solution(numbers, hand):
     
     answer = []
-    
+    # 123
+    # 456
+    # 789
+    # *0#
     left = {
     1 : [2,4],
     2 : [1,5],
     4 : [1,5,7],
     5 : [2,4,8],
-    7 : [4,8,-1],
+    7 : [-1,4,8],
     8 : [5,7,0],
     -1 : [7,0],
     0 : [-1,8]   
@@ -20,8 +23,8 @@ def solution(numbers, hand):
         5 : [2,6,8],
         6 : [3,5,9],
         8 : [5,9,0],
-        9 : [6,8,-2],
-        0 : [8,-2],
+        9 : [-2,6,8],
+        0 : [-2,8],
         -2 : [0,9]
     }
     left_min = 0
@@ -32,6 +35,7 @@ def solution(numbers, hand):
         left_dist = []
         right_dist = []
 
+        #print(current_left," : ",left_min,", ", current_right, " : ", right_min) 
         if numbers[i] not in left.keys():
             answer.append("R")
             current_right = numbers[i]
@@ -48,14 +52,18 @@ def solution(numbers, hand):
         left_min = min(left_dist) #if len(left_dist) != 0 else left_min
         right_min = min(right_dist) #if len(right_dist) != 0 else right_min
         
-        if numbers[i-1] == numbers[i] and left_min == right_min:
-            if hand == 'left':
-                answer.append("L")
-                current_left = numbers[i]
-            else:
-                answer.append("R")
-                current_right = numbers[i]
-            continue
+        if current_left == numbers[i]:
+            answer.append('L')
+        elif current_right == numbers[i]:
+            answer.append('R')
+        # if i != 0 and numbers[i-1] == numbers[i]:
+        #     if hand == 'left':
+        #         answer.append(answer[-1])
+        #         current_left = numbers[i]
+        #     else:
+        #         answer.append(answer[-1])
+        #         current_right = numbers[i]
+        #     continue
         elif left_min == right_min:
             if hand == 'left':
                 answer.append("L")
@@ -69,13 +77,19 @@ def solution(numbers, hand):
         else:
             answer.append("R")
             current_right = numbers[i]
-        
-    return answer
+    
+    print(current_left, current_right)
+    return ''.join(answer)
 
 def path2(graph, p : list, start, end, dist, distance : list):
     p.append(start)
     
     dist += 1
+    
+    if p[-1] == end:
+        dist -= 1
+        distance.append(dist)
+        return
     if end in graph[p[-1]]:
         p.append(end)
         distance.append(dist)
@@ -84,6 +98,3 @@ def path2(graph, p : list, start, end, dist, distance : list):
         for i in graph[p[-1]]:
             if i not in p:
                 path2(graph, copy.copy(p), i, end, dist, distance)
-
-
-solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],	"right"	)
