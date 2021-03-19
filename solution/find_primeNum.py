@@ -6,4 +6,8 @@ def solution(n):
             primeNum.append(i)
             for j in range(2*i, n+1, i):
                 num[j] = False
+    print(len(num), num)
     return len(primeNum)
+
+solution(100)
+
