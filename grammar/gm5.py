@@ -31,3 +31,10 @@ print(gggg)
 
 
 count = a.count(1)
+
+from collections import Counter
+ete = [['1','a'],['1','b'],['3','c'],['1','d'],['3','a']]
+
+cnt = Counter([kind for name, kind in ete])
+
+print(cnt)
