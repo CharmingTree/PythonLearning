@@ -1,9 +1,3 @@
-
-
-
-from typing import SupportsComplex
-
-
 def solution(dartResult : list):
     answer = 0
     score = {1 : ['','',''], 2 : ['','',''], 3 : ['','','']}
