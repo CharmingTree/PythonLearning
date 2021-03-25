@@ -1,13 +1,23 @@
+import math
 def solution(progresses, speeds):
     answer = []
-
-    d_day = []
+    d_day = []   
     for i in range(len(progresses)):
+        t = math.ceil((100-progresses[i]) / speeds[i])
+        d_day.append(t)
+    target = d_day[0]
+    tmp = []
+    while len(d_day) != 0:
+        if target >= d_day[0]:
+            tmp.append(d_day.pop(0))
+        else:
+            target = d_day[0]
+            answer.append(len(tmp))
+            tmp = []
+            continue
+    if len(tmp) != 0:
+        answer.append(len(tmp))
 
-        s = sum([1 for j in range(progresses[i], 100, speeds[i])])
-        d_day.append(s)
-    
-    print(d_day)
     return answer
 
 solution([93, 30, 55],[1, 30, 5])
